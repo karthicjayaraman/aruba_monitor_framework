@@ -1,0 +1,642 @@
+/* Icons */
+
+[class*='icon_']:before  {
+    font-family: 'arubaUI';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2rem;
+    @include breakpoint(mama-bear) {
+        font-size: 2.5rem;
+    }
+    speak: none;
+    text-transform: none;
+
+    /* Enable Ligatures ================ */
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class*='icon_'] {
+    position: relative;
+}
+
+[class*='icon_']:before{
+    position: absolute;
+}
+
+.icofirst[class*='icon_'] {
+    padding-left: 2.625rem;
+    @include breakpoint(mama-bear) {
+        padding-left: 3.125rem;
+    }
+}
+
+.icofirst[class*='icon_']:before {
+    left: 0;
+}
+
+.icosolo[class*='icon_']:before {
+    position: relative;
+}
+
+.fontface {
+
+    .icon_search:before {
+        content: "search";
+    }
+
+    .icon_pointer_up:before {
+        content: "up";
+    }
+
+    .icon_pointer_down:before {
+        content: "down";
+    }
+
+    .icon_notif:before {
+        content: "notifications";
+    }
+
+    .icon_levels:before {
+        content: "levels";
+    }
+
+    .icon_expand:before {
+        content: "expand";
+    }
+
+    .icon_collapse:before {
+        content: "collapse";
+    }
+
+    .icon_edit:before {
+        content: "edit";
+    }
+
+    .icon_delete:before {
+        content: "delete";
+    }
+
+    .icon_add:before {
+        content: "add";
+    }
+
+    .icon_checkmark:before {
+        content: "checkmark";
+    }
+
+    .icon_chat:before {
+        content: "chat";
+    }
+
+    .icon_arrow_up:before {
+        content: "arrowup";
+    }
+
+    .icon_arrow_down:before {
+        content: "arrowdown";
+    }
+
+    .icon_arrow_right:before {
+        content: "arrowright";
+    }
+
+    .icon_arrow_left:before {
+        content: "arrowleft";
+    }
+
+    .icon_alert:before {
+        content: "alert";
+    }
+
+    .icon_mail:before {
+        content: "mail";
+    }
+
+    .icon_settings:before {
+        content: "settings";
+    }
+
+    .icon_info:before {
+        content: "info";
+    }
+
+    .icon_favorite:before {
+        content: "favorite";
+    }
+
+    .icon_favorited:before {
+        content: "favorited";
+    }
+
+    .icon_download:before {
+        content: "download";
+    }
+
+    .icon_confirmed:before {
+        content: "confirmed";
+    }
+
+    .icon_menu:before {
+        content: "menu";
+    }
+
+    .icon_close:before {
+        content: "close";
+    }
+
+    .icon_big_arrow_right:before {
+        content: "bigarrowright";
+    }
+
+    .icon_big_arrow_left:before {
+        content: "bigarrowleft";
+    }
+
+    .icon_archive:before {
+        content: "archive";
+    }
+
+    .icon_grip:before {
+        content: "grip";
+    }
+
+    .icon_print:before {
+        content: "print";
+    }
+
+    .icon_doc:before {
+        content: "doc";
+    }
+
+    .icon_avatar:before {
+        content: "avatar";
+    }
+
+    .icon_help:before {
+        content: "help";
+    }
+
+    .icon_copy:before {
+        content: "copy";
+    }
+
+    .icon_add_ap:before {
+        content: "addAP";
+    }
+
+    .icon_add_floorplan:before {
+        content: "addfloorplan";
+    }
+
+    .icon_add_ap_alt:before {
+        content: "addAPalt";
+    }
+
+    .icon_building:before {
+        content: "building";
+    }
+
+    .icon_campus:before {
+        content: "campus";
+    }
+
+    .icon_monitor:before {
+        content: "monitor";
+    }
+
+    .icon_phone:before {
+        content: "phone";
+    }
+
+    .icon_tablet:before {
+        content: "tablet";
+    }
+
+    .icon_delete_ap:before {
+        content: "deleteAP";
+    }
+
+    .icon_delete_ap_alt:before {
+        content: "deleteAPalt";
+    }
+
+    .icon_download_doc:before {
+        content: "downloaddoc";
+    }
+
+    .icon_draw_region:before {
+        content: "drawregion";
+    }
+
+    .icon_draw_line:before {
+        content: "drawline";
+    }
+
+    .icon_folder_open:before {
+        content: "folderopen";
+    }
+
+    .icon_folder_closed:before {
+        content: "folderclosed";
+    }
+
+    .icon_ap:before {
+        content: "AP";
+    }
+
+    .icon_floorplan:before {
+        content: "floorplan";
+    }
+
+    .icon_bolt:before {
+        content: "bolt";
+    }
+
+    .icon_lock:before {
+        content: "lock";
+    }
+
+    .icon_origin:before {
+        content: "origin";
+    }
+
+    .icon_pause:before {
+        content: "pause";
+    }
+
+    .icon_play:before {
+        content: "play";
+    }
+
+    .icon_region:before {
+        content: "region";
+    }
+
+    .icon_no:before {
+        content: "no";
+    }
+
+    .icon_ruler:before {
+        content: "ruler";
+    }
+
+    .icon_tack:before {
+        content: "tack";
+    }
+
+    .icon_tag:before {
+        content: "tag";
+    }
+
+    .icon_unlock:before {
+        content: "unlock";
+    }
+
+    .icon_wall:before {
+        content: "wall";
+    }
+
+    .icon_wire:before {
+        content: "wire";
+    }
+
+    .icon_link:before {
+        content: "link";
+    }
+
+    .icon_link_broken:before {
+        content: "linkbroken";
+    }
+
+    .icon_sync:before {
+        content: "sync";
+    }
+
+    .icon_sync_fail:before {
+        content: "syncfail";
+    }
+    
+}
+
+.noliga {
+
+    .icon_search:before {
+        content: "\e618";
+    }
+
+    .icon_pointer_up:before {
+        content: "\e61a";
+    }
+
+    .icon_pointer_down:before {
+        content: "\e612";
+    }
+
+    .icon_notif:before {
+        content: "\e615";
+    }
+
+    .icon_levels:before {
+        content: "\e614";
+    }
+
+    .icon_expand:before {
+        content: "\e616";
+    }
+
+    .icon_collapse:before {
+        content: "\e611";;
+    }
+
+    .icon_edit:before {
+        content: "\e613";;
+    }
+
+    .icon_delete:before {
+        content: "\e606";
+    }
+
+    .icon_add:before {
+        content: "\e60c";
+    }
+
+    .icon_checkmark:before {
+        content: "\e619";
+    }
+
+    .icon_chat:before {
+        content: "\e610";
+    }
+
+    .icon_arrow_up:before {
+        content: "\e61c";
+    }
+
+    .icon_arrow_down:before {
+        content: "\e61b";
+    }
+
+    .icon_arrow_right:before {
+        content: "\e60e";
+    }
+
+    .icon_arrow_left:before {
+        content: "\e60d";
+    }
+
+    .icon_alert:before {
+        content: "\e620";
+    }
+
+    .icon_mail:before {
+        content: "\e600";
+    }
+
+    .icon_settings:before {
+        content: "\e601";
+    }
+
+    .icon_info:before {
+        content: "\e602";
+    }
+
+    .icon_favorite:before {
+        content: "\e604";
+    }
+
+    .icon_favorited:before {
+        content: "\e603";
+    }
+
+    .icon_download:before {
+        content: "\e605";
+    }
+
+    .icon_confirmed:before {
+        content: "\e607";
+    }
+
+    .icon_menu:before {
+        content: "\e61f";
+    }
+
+    .icon_close:before {
+        content: "\e61d";
+    }
+
+    .icon_big_arrow_right:before {
+        content: "\e609";
+    }
+
+    .icon_big_arrow_left:before {
+        content: "\e60d";
+    }
+
+    .icon_archive:before {
+        content: "\e60b";
+    }
+
+    .icon_grip:before {
+        content: "\e61e";
+    }
+
+    .icon_print:before {
+        content: "\e608";
+    }
+
+    .icon_doc:before {
+        content: "\e60f";
+    }
+
+    .icon_avatar:before {
+        content: "\e621";
+    }
+
+    .icon_help:before {
+        content: "\e623";
+    }
+
+    .icon_copy:before {
+        content: "\e622";
+    }
+
+    .icon_add_ap:before {
+        content: "\e624";
+    }
+
+    .icon_add_floorplan:before {
+        content: "\e625";
+    }
+
+    .icon_add_ap_alt:before {
+        content: "\e626";
+    }
+
+    .icon_building:before {
+        content: "\e627";
+    }
+
+    .icon_campus:before {
+        content: "\e628";
+    }
+
+    .icon_monitor:before {
+        content: "\e629";
+    }
+
+    .icon_phone:before {
+        content: "\e62a";
+    }
+
+    .icon_tablet:before {
+        content: "\e62b";
+    }
+
+    .icon_delete_ap:before {
+        content: "\e62c";
+    }
+
+    .icon_delete_ap_alt:before {
+        content: "\e62d";
+    }
+
+    .icon_download_doc:before {
+        content: "\e62e";
+    }
+
+    .icon_draw_region:before {
+        content: "\e62f";
+    }
+
+    .icon_draw_line:before {
+        content: "\e630";
+    }
+
+    .icon_folder_open:before {
+        content: "\e632";
+    }
+
+    .icon_folder_closed:before {
+        content: "\e633";
+    }
+
+    .icon_ap:before {
+        content: "\e634";
+    }
+
+    .icon_floorplan:before {
+        content: "\e635";
+    }
+
+    .icon_bolt:before {
+        content: "\e636";
+    }
+
+    .icon_lock:before {
+        content: "\e637";
+    }
+
+    .icon_origin:before {
+        content: "\e638";
+    }
+
+    .icon_pause:before {
+        content: "\e639";
+    }
+
+    .icon_play:before {
+        content: "\e63a";
+    }
+
+    .icon_region:before {
+        content: "\e63b";
+    }
+
+    .icon_no:before {
+        content: "\e63c";
+    }
+
+    .icon_ruler:before {
+        content: "\e63d";
+    }
+
+    .icon_tack:before {
+        content: "\e63e";
+    }
+
+    .icon_tag:before {
+        content: "\e63f";
+    }
+
+    .icon_unlock:before {
+        content: "\e640";
+    }
+
+    .icon_wall:before {
+        content: "\e641";
+    }
+
+    .icon_wire:before {
+        content: "\e642";
+    }
+
+    .icon_link:before {
+        content: "\e644";
+    }
+
+    .icon_link_broken:before {
+        content: "\e643";
+    }
+
+    .icon_sync:before {
+        content: "\e646";
+    }
+
+    .icon_sync_fail:before {
+        content: "\e645";
+    }
+    
+}
+
+.icon-fallback {
+
+    position: absolute;
+
+    img {
+        width: 2rem;
+        height: 2rem;
+        @include breakpoint(mama-bear) {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+}
+
+.icon-fallback:before {
+    font-size: 0 !important;
+}
+
+.icofirst.icon-fallback img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1rem;
+}
+
+.icosolo.icon-fallback img {
+    position: relative;
+}
+
+.icon-fallback:before {
+    display: none;
+}

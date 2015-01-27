@@ -1,0 +1,32 @@
+﻿<div class="form-group" ng-hide="{{hideWhen}}">
+    <label class="col-sm-3 control-label {{lblcls}}">{{label}}</label>
+    <div class="col-sm-9">
+        <!-- Single option -->
+        <label ng-if="{{hasOptions}}" ng-repeat="option in {{optionsKey}}">
+            <input class="field-{{type}}"
+                   type="{{type}}"
+                   value="{{interpolateStartSymbol}} option.{{optionKey}} {{interpolateEndSymbol}}"
+                   id="{{name}}_{{interpolateStartSymbol}}option.{{optionKey}}{{interpolateEndSymbol}}"
+                   name="{{name}}"
+                   ng-model="model.{{dataPath}}"
+                   ng-click="{{handle}}($event, '{{name}}_{{interpolateStartSymbol}}option.key{{interpolateEndSymbol}}', '{{formName}}', 'click');"
+                   ng-change="{{handle}}($event, '{{name}}_{{interpolateStartSymbol}}option.key{{interpolateEndSymbol}}', '{{formName}}', 'change');"
+                   ng-focus="{{handle}}($event, '{{name}}_{{interpolateStartSymbol}}option.key{{interpolateEndSymbol}}', '{{formName}}', 'focus');"
+                   ng-blur="{{handle}}($event, '{{name}}_{{interpolateStartSymbol}}option.key{{interpolateEndSymbol}}', '{{formName}}', 'blur');">
+
+            {{interpolateStartSymbol}} option.value {{interpolateEndSymbol}}
+        </label>
+
+        <!-- Single option -->
+        <input ng-if="!{{hasOptions}}" class="field-{{type}}"
+               type="{{type}}"
+               id="{{name}}"
+               name="{{name}}"
+               ng-model="model.{{dataPath}}"
+               ng-click="{{handle}}($event, '{{name}}', '{{formName}}', 'click');"
+               ng-change="{{handle}}($event, '{{name}}', '{{formName}}', 'change');"
+               ng-focus="{{handle}}($event, '{{name}}', '{{formName}}', 'focus');"
+               ng-blur="{{handle}}($event, '{{name}}', '{{formName}}', 'blur');">
+        <p class="help-block">{{help}}</p>
+    </div>
+</div>

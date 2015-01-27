@@ -1,0 +1,50 @@
+/* Badges */
+
+.badge {
+	display: inline-block;
+	position: relative;
+	min-width: 1.5rem;
+	height: 1.5rem;
+	margin-left: 0.625rem;
+	padding: 0.25rem;
+	border: 2px solid #fff;
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: bold;
+	white-space: nowrap;
+	text-align: center;
+	background: $colorAlert;
+	@include border-radius(1.25rem);
+	@include box-sizing(border-box);
+}
+
+.badge.label {
+	min-width: 1.75rem;
+	height: 1.75rem;
+	border: none;
+	padding: 0.5rem;
+	line-height: 1;
+	color: lighten($colorTitle, 20%);
+	background: $colorNeutralMd;
+	@include box-shadow(0 1px 1px rgba(0,0,0,0.10) inset);
+}
+
+.icosolo .badge {
+	margin: 0;
+	left: -0.5rem;
+	top: -1rem;
+	@include breakpoint(mama-bear) {
+		left: -0.75rem;
+		top: -1.25rem;
+	}
+}
+
+.button .badge {
+	background: rgba(0,0,0,0.20);
+	border: none;
+	@include box-shadow(0 1px 0 rgba(0,0,0,0.20) inset);
+}
+
+.badge:empty {
+	display: none;
+}

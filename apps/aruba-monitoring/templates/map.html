@@ -1,0 +1,11 @@
+<div class="checkboxes">
+  <div class="cf">
+    <div class="small-12 medium-6 columns" ng-repeat="term in terms track by $index" style="float:left;">
+      <input type="checkbox" id="{{$index}}" value="{{term}}" ng-checked="selected_terms.indexOf(term) > -1" ng-click="toggleSelection(term)" >
+      <label for="opt1">{{term}}</label>
+    </div>
+  </div>
+</div>
+
+<div class="small-12 medium-8 medium-offset-4 columns">
+                <a class="large button" href="javascript:void(0)" ng-click="doSubmit()">Submit</a> <a id="User_Setting_Cancel" class="button large white" ng-click="showUserSettingsPopup = false" href="javascript:">Cancel</a></div>

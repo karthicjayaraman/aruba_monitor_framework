@@ -1,0 +1,230 @@
+/* Off Canvas */
+
+.off_canvas_wrap, .inner_wrap, .off_canvas_menu, .off_canvas_menu *, .move_right a.exit_off_canvas {
+    @include backface-visibility(hidden);
+    @include transform(translate3d(0,0,0)); 
+}
+
+.off_canvas_wrap {
+    background: $colorNeutralMd;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
+.off_canvas_wrap, .inner_wrap {
+    position: relative;
+    width: 100%; 
+}
+
+.off_canvas_menu {
+    position: absolute;
+    width: 250px;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    @include transform(translate3d(25%, 0, 0));
+    @include transition(transform 500ms ease);
+}
+
+.off_canvas_menu > ul {
+
+    li {
+        position: relative;
+        margin-left: 1.25rem;
+        border-bottom: 1px solid $colorDivider;
+    }
+
+    li:last-child {
+        border-bottom: none;
+    }
+
+    > li.folder.current {
+        border-bottom: none;
+    }
+
+    > li > a {
+        display: block;
+        position: relative;
+        padding: 1.5625rem 0;
+        line-height: 1rem;
+        @include breakpoint(mama-bear) {
+            padding: 2rem 0;
+        }
+    }
+
+    > li > a:hover, > li > a:active {
+        @include opacity(1);
+    }
+
+    > li > a > div {
+        font-size: 0.875rem;
+        @include breakpoint(mama-bear) {
+            font-size: 1.125rem;
+        }
+    }
+
+    > li > a > div, li > a > span {
+        display: inline-block;
+        @include transition(opacity 200ms ease);
+    }
+
+    > li > a > span {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    > li > a > div:active, > li > a > span:active {
+        @include opacity(0.5);
+    }
+
+    > li > a > span:before, > li > a > span.icon-fallback {
+        position: absolute;
+        top: 1.5625rem;
+        right: 0;
+        @include breakpoint(mama-bear) {
+            top: 2rem;
+        }
+    }
+
+    li > a > span.icon-fallback {
+        top: 1rem;
+        @include breakpoint(mama-bear) {
+            top: 1.25rem;
+        }
+    }
+
+    ul {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    ul.expand {
+        max-height: 500px;
+        @include transition(max-height 600ms ease); 
+    }
+
+    ul > li {
+        margin: 0 0 0 1.25rem;
+    }
+
+    ul > li > a {
+        display: block;
+        padding: 0.8125rem 0;
+        font-size: 0.875rem;
+        @include breakpoint(mama-bear) {
+            padding: 1.125rem 0;
+            font-size: 1.125rem;
+        }
+    }
+
+    ul > li.current > a, ul > li.current > a:hover, ul > li.current > a:active {
+        color: $colorHighlight;
+        @include opacity(1);
+    }
+}
+
+.no-touch .off_canvas_menu > ul {
+    > li > a > div:hover, > li > a > span:hover {
+        @include opacity(0.5);
+    }
+}
+
+.inner_wrap {
+    *zoom: 1;
+    @include transition(transform 500ms ease);
+    @include transform(translate3d(0,0,0));
+}
+
+.inner_wrap:before, .inner_wrap:after {
+    content: " ";
+    display: table; 
+}
+
+.inner_wrap:after {
+    clear: both; 
+}
+
+.move_right {
+
+    > .inner_wrap {
+        @include transform(translate3d(250px, 0, 0));
+    }
+
+    .off_canvas_menu {
+        @include transform(translate3d(-100%, 0, 0));
+    }
+
+    a.exit_off_canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        cursor: pointer;
+        z-index: 1002;
+    }
+
+    .off_canvas_toggle {
+        
+        .list_icon.top {
+            @include transform(rotate(45deg));
+            @include transform-origin(5px, 2px);
+        }
+
+        .list_icon.middle {
+            @include opacity(0);
+        }
+
+        .list_icon.bottom {
+            @include transform(rotate(-45deg));
+            @include transform-origin(0, 0);
+        }
+    }
+}
+
+.no-csstransforms3d .off_canvas_menu {
+    left: -250px; 
+}
+
+.no-csstransforms3d .move_right > .inner_wrap {
+    left: 250px; 
+}
+
+.off_canvas_toggle {
+    display: block;
+    position: relative;
+    padding: 1.25rem;
+    width: 1.625rem;
+    cursor: pointer;
+    @include transform(translate3d(0,0,0));
+
+    > div {
+        display: block;
+        height: 1.1875rem;
+    }
+
+    .list_icon {
+        display: block;
+        position: relative;
+        width: 1.625rem;
+        height: 0.1875rem;
+        background: $colorLink;
+        margin: 0.3125rem 0 0 0;
+        @include border-radius(2px);
+        @include transition(all 200ms);
+    }
+
+    .list_icon.top {
+        margin-top: 0;
+    }
+}
+
+.off_canvas_wrap .inner_wrap .main_content {
+    position: relative;
+    margin: 0 1.25rem 1.25rem;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.15);
+}

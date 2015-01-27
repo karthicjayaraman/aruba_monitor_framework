@@ -1,0 +1,161 @@
+/* Sidenav */
+
+.sidenav {
+    display: block;
+    position: fixed;
+    top: 150px;
+    bottom: 0;
+    width: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: $colorNeutralMd;
+    @include box-shadow(-2px 0 0 $colorDividerLt inset, -1px 0 0 $colorDivider inset);
+    @include transition(max-height 600ms ease);
+    @include breakpoint(mama-bear) {
+        position: relative;
+        top: 0;
+        width: 100%;
+        max-height: 0;
+        overflow-y: hidden;
+        @include box-shadow(0 0 0 rgba(0,0,0,0));
+    }
+
+    li {
+        position: relative;
+        border-bottom: 1px solid $colorDivider;
+    }
+
+    li.current > a {
+        background-color: $colorHighlight;
+        color: #fff;
+        font-weight: bold;
+        @include box-shadow(0 -1px 0 $colorHighlight, 0 1px 0 $colorHighlight, -2px 0 0 $colorDividerLt inset, -1px 0 0 $colorDivider inset);
+    }
+
+    li.current > a:after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -0.625rem;
+        content: '';
+        border-top: 10px solid transparent;
+        border-right: 10px solid #fff;
+        border-left: none;
+        border-bottom: 10px solid transparent;
+        @include breakpoint(mama-bear) {
+            display: none;
+        }
+    }
+
+    li.current > a:before {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: -1px;
+        margin-top: -12px;
+        content: '';
+        border-top: 12px solid transparent;
+        border-right: 12px solid rgba(0,0,0,0.10);
+        border-left: none;
+        border-bottom: 10px solid transparent;
+        @include breakpoint(mama-bear) {
+            display: none;
+        }
+    }
+
+    li.folder.current > a:after, li.folder.current > a:before {
+        display: none;
+    }
+
+    > li.folder.current > a {
+        color: $colorHighlight;
+        font-weight: normal;
+        background-color: $colorNeutralLt;
+        @include box-shadow(-2px 0 0 $colorDividerLt inset, -1px 0 0 $colorDivider inset);
+    }
+
+    > li > a {
+        display: block;
+        padding: 1.25rem 0 1.25rem 0.625rem;
+        @include breakpoint(mama-bear) {
+            font-size: 1.125rem;
+        }
+    }
+
+    ul {
+        max-height: 0;
+        background-color: $colorNeutralLt;
+        overflow: hidden;
+        @include transition(max-height 600ms ease);
+    }
+
+    ul.expand {
+        max-height: 1000px;
+    }
+
+    ul > li {
+        margin: 0 0 0 2rem;
+    }
+
+    ul > li.current {
+        margin: 0;
+    }
+
+    ul > li:last-child {
+        border-bottom: none;
+    }
+
+    ul > li > a {
+        display: block;
+        padding: 0.8125rem 0;
+        font-size: 0.875rem;
+        @include box-shadow(-2px 0 0 $colorDividerLt inset, -1px 0 0 $colorDivider inset);
+        @include breakpoint(mama-bear) {
+            padding: 1.125rem 0;
+            font-size: 1rem;
+        }
+    }
+
+    ul > li.current > a {
+        padding-left: 2rem;
+    }
+
+}
+
+.no-touch .sidenav li.current > a:hover {
+    @include opacity(1);
+}
+
+.sidenav.expand {
+    @include breakpoint(mama-bear) {
+        max-height: 999px;
+    }
+}
+
+.mobile_menu_toggle {
+    background-color: $colorNeutralMd;
+    border-bottom: 1px solid $colorDivider;
+}
+
+.mobile_menu_toggle a[class*='icon_'], .mobile_menu_toggle .icon-fallback {
+    display: none;
+    position: relative;
+    padding: 1.25rem 0 1.25rem 0.625rem;
+    line-height: 1rem;
+    @include breakpoint(mama-bear) {
+        display: block;
+        font-size: 1.125rem;
+    }
+}
+
+.mobile_menu_toggle .icon_arrow_down:before, .mobile_menu_toggle .icon_arrow_up:before, .mobile_menu_toggle .icon-fallback img {
+    position: absolute;
+    right: 0;
+    color: $colorLink;
+}
+
+.mobile_menu_toggle .icon-fallback img {
+    top: 50%;
+    margin-top: -1rem;
+}

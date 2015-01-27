@@ -1,0 +1,66 @@
+/*Title Bar*/
+.title_Bar_padding
+{
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+
+/* Counter Box */
+.boxColor
+{		
+	background-color:#EBEEF2;
+	border:1px solid rgba(0,0,0,0.05);
+	border-right: 1px solid rgba(0,0,0,0.1);
+	border-radius: 4px;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.counter-box
+{
+	height: 50px;
+	width: 20%;
+	padding: 20px;
+	margin-left: 2%;
+
+	float: left;
+	vertical-align: baseline;
+}
+.counter-title
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #646569;
+	letter-spacing: .09em;
+	text-transform: uppercase;
+}
+.count-view
+{
+	float: left;
+	clear: right;
+	position: relative;
+	margin: 20px 20px 0 0;
+	font-size: 18px;
+	line-height: 16px;
+	color: #004876;
+	cursor: pointer;
+}
+
+
+/* Chart */
+.divForChart
+{
+	width: 48%;
+	margin-left: 2%;
+	float: left;
+	margin-top: 40px;
+}
+.divForFullChart
+{
+	width: 96%;
+	margin-left: 2%;
+	float: left;
+	margin-top: 40px;
+}
+.divForFullChartBottom
+{
+	margin-bottom: 40px;
+}

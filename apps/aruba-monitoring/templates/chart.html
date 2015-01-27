@@ -1,0 +1,24 @@
+<div class="example">
+  <div class="forms">
+    <div class="inputs cf">
+      <label class="small-12 medium-1 columns">X Axis:</label>
+      <div class="small-12 medium-4 columns input">
+        <select name="x_term">
+          <option value="">---Select Type---</option>
+          <option ng-repeat="term in terms track by $index" value="{{term}}">{{term}}</option>
+        </select>
+      </div>
+      <label class="small-12 medium-1 columns">Y Axis:</label>
+      <div class="small-12 medium-4 columns input">
+        <select name="y_term">
+          <option value="">---Select Type---</option>
+          <option ng-repeat="term in terms track by $index" value="{{term}}">{{term}}</option>
+        </select>
+      </div>
+      <div class="small-12 medium-2 columns input"><!--<img src="assets/images/icon_fallbacks/add_link.png" style="height:35px;" />--></div>
+    </div>
+    <br />
+    <br />
+    <div class="small-12 medium-8 medium-offset-4 columns"> <a class="large button" href="javascript:void(0)" ng-click="doChart()">Submit</a> <a id="User_Setting_Cancel" class="button large white" ng-click="doCancel()" href="javascript:">Cancel</a> </div>
+  </div>
+</div>

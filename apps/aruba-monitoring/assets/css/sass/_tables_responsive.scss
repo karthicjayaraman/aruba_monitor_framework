@@ -1,0 +1,96 @@
+/* TABLES (Responsive) */
+
+table.data.responsive {
+
+    thead {
+        @include breakpoint(baby-bear) {
+            display: none; 
+        }
+    }
+
+    tr, td {
+        @include breakpoint(baby-bear) {
+            display: block;
+        }
+    }
+
+    td {
+        @include breakpoint(baby-bear) {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            padding-left: 40%;
+            max-width: 60%;
+            min-height: 1rem;
+        }
+
+        &:before {
+            @include breakpoint(baby-bear) {
+                display: block;
+                position: absolute;
+                left: 0.875rem;
+                font-size: 0.8125rem;
+                font-weight: bold;
+                line-height: 1;
+                color: $colorTitle;
+                text-transform: uppercase;
+                max-width: 35%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        &:nth-of-type(1) {
+            @include breakpoint(baby-bear) {
+                padding-top: 3.125rem;
+                border-top: 1px solid $colorNeutralMd;
+                border-bottom: none;
+                background: $colorNeutralLt;
+                @include box-shadow(0 -2px 0 $colorDividerLt inset);
+            }
+        }
+
+        &.checkbox {
+            @include breakpoint(baby-bear) {
+                padding: 2.5rem 0 0;
+                width: 100%;
+            }
+
+            input[type=checkbox] {
+                @include breakpoint(baby-bear) {
+                    position: absolute;
+                    top: 1rem;
+                    left: 0.875rem;
+                }
+            }
+
+        }
+
+        &:nth-last-of-type(2) {
+            @include breakpoint(baby-bear) {
+                border-bottom: none;
+            }
+        }
+
+        &.actions {
+            @include breakpoint(baby-bear) {
+                position: absolute;
+                padding-left: 0;
+                top: 0;
+                right: 0;
+                border: none;
+                background: none;
+            }
+        }
+
+    }
+
+    /* Label the data */
+    td.name:before { content: "Name"; }
+    td.location:before { content: "Location"; }
+    td.status:before { content: "Status"; }
+    td.clients:before { content: "Clients"; }
+    td.ip:before { content: "IP Address"; }
+    td.type:before { content: "Type"; }
+
+}

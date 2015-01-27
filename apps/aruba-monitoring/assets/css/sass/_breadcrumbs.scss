@@ -1,0 +1,53 @@
+/* Breadcrumbs */
+
+.breadcrumb.off_canvas_toggle {
+        display: none;
+    @include breakpoint(baby-bear) {
+        display: block;
+        float: left;
+        padding: 0;
+    }
+}
+
+.breadcrumbs {
+    display: block;
+    position: relative;
+    margin-left: -2.625rem;
+    white-space: nowrap;
+
+    > a {
+        line-height: 1rem;
+        @include breakpoint(baby-bear) {
+            display: none;
+        }
+    }
+
+    > a.last {
+        @include breakpoint(baby-bear) {
+            display: block;
+            float: left;
+            line-height: 1rem;
+        }
+    }
+
+    > a:first-child:before, > a.icon-fallback:first-child img {
+        display:none;
+    }
+
+    > a:before, a.icon-fallback img {
+        color: lighten($colorTitle, 20%);
+        @include breakpoint(baby-bear) {
+            display: none;
+        }
+    }
+
+    > a.current {
+        color: lighten($colorTitle, 20%);
+        cursor: default;
+    }
+
+}
+
+.no-touch .breadcrumbs > a.current:hover {
+    @include opacity(1);
+}

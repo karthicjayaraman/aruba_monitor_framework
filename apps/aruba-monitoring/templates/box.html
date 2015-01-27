@@ -1,0 +1,10 @@
+<div class="small-12 medium-4 columns input custom_widget" id="container-{{name}}" name="container-{{name}}" ng-hide="{{hideWhen}}">
+  <div class="panel_wrapper">
+    <div class="panel rounded white no_pad">
+      <div class="title_heading" ng-if="{{showTitle}}"> <a>{{title || label}}</a> </div>
+      <ul class="two_column_list">
+        <li><span id="{{id}}" name="{{name}}" ng-bind="model.{{dataPath}}" style="float:left;"> </span></li>
+      </ul>
+    </div>
+  </div>
+</div>

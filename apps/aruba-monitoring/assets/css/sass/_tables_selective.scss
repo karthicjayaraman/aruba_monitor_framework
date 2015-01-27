@@ -1,0 +1,15 @@
+/* TABLES (Selective) */
+
+table.data.enhanced {
+
+    th, td {
+        display: table-cell;
+    }
+
+    th.optional, td.optional {
+        @include breakpoint(baby-bear) {
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,26 @@
+﻿<div class="form-group" ng-hide="{{hideWhen}}">
+    <label class="col-sm-3 control-label {{lblcls}}">{{label}}</label>
+    <div class="col-sm-9">
+        <select class="form-control field-{{type}}" ng-if="!angular.isArray({{optionsKey}})"
+                id="{{name}}"
+                name="{{name}}"
+                ng-model="model.{{dataPath}}"
+                placeholder="{{placeholder}}"
+                ng-options="op.{{optionValue}} for op in {{optionsKey}} track by op.{{optionKey}}"
+                ng-change="{{handle}}($event, '{{name}}', 'change');"
+                ng-focus="{{handle}}($event, '{{name}}', 'focus');"
+                ng-blur="{{handle}}($event, '{{name}}', 'blur');" />
+
+        <select class="form-control field-{{type}}" ng-if="angular.isArray({{optionsKey}})"
+                id="{{name}}"
+                name="{{name}}"
+                ng-model="model.{{dataPath}}"
+                placeholder="{{placeholder}}"
+                ng-options="select as label for value in {{optionsKey}}"
+                ng-change="{{handle}}($event, '{{name}}', 'change');"
+                ng-focus="{{handle}}($event, '{{name}}', 'focus');"
+                ng-blur="{{handle}}($event, '{{name}}', 'blur');" />
+
+        <p class="help-block">{{help}}</p>
+    </div>
+</div>

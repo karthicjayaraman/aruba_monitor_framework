@@ -1,0 +1,172 @@
+/* Panels */
+
+.panel_wrapper {
+    position: relative;
+}
+
+.panel {
+    padding: 1.25rem;
+    font-size: 0.875rem;
+    background: $colorNeutralLt;
+    border: 1px solid $colorDividerLt;
+    overflow: auto;
+
+    .title_heading {
+        display: block;
+        padding: 0.875rem 0.625rem;
+        color: $colorNeutralDk;
+        font-weight: bold;
+        background: $colorTitle;
+        text-align: left;
+        @include border-radius(2px 2px 0 0);
+
+        a {
+            display: inline-block;
+            color: #fff;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+
+        span {
+            position: absolute;
+            right: 0.625rem;
+            color: $colorNeutralDk;
+        }
+
+        .dropdown {
+            position: absolute;
+            right: 0.625rem;
+            top: 0.5rem;
+            z-index: 1000;
+            @include breakpoint(mama-bear) {
+                top: 0.125rem;
+            }
+
+            > a {
+                padding-right: 0;
+                @include breakpoint(mama-bear) {
+                    padding-right: 0;
+                }
+            }
+
+            ul > li {
+                display: block;
+                padding: 0.25rem;
+                border-top: 1px solid $colorDivider;
+                font-size: 0.875rem;
+                overflow: auto;
+            }
+
+            ul > li:first-child {
+                border-top: none;
+            }
+
+            label {
+                color: $colorText;
+                font-weight: normal;
+            }
+
+        }
+    
+    }
+
+    .group_heading {
+        font-size: 0.8125rem;
+        font-weight: bold;
+        line-height: 1;
+        color: $colorTitle;
+        text-transform: uppercase;
+        padding: 0.5rem 0.625rem 0.625rem;
+        background: $colorNeutralLt;
+        @include box-shadow(0 -2px 0 $colorDividerLt inset);
+    }
+
+    .health_meter {
+        display: table;
+        width: 100%;
+
+        > div {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            width: 50%;
+        }
+
+        .good {
+            color: darken($colorAccent1, 20%);
+            background: lighten(desaturate($colorAccent1, 15%), 25%);
+            @include box-shadow(0 -4px 0 $colorAccent1 inset, -1px 0 0 $colorDividerLt inset);
+        }
+
+        .bad {
+            color: $colorAlert;
+            background: lighten(desaturate($colorAlert, 40%), 48%);
+            @include box-shadow(0 -4px 0 $colorAlert inset, 1px 0 0 #fff inset);
+        }
+
+        p {
+            display: inline-block;
+            margin: 0.625rem auto 0.625rem -1.3125rem;
+            @include breakpoint(mama-bear) {
+                font-size: 0.875rem;
+                padding-left: 2.625rem;
+            }
+        }
+
+        p[class*='icon_']:before {
+            @include breakpoint(mama-bear) {
+                font-size: 2rem;
+            }
+        }
+
+    }
+
+    .seggyc {
+        float: right;
+        margin: 1.25rem 0.625rem 1.25rem 0;
+    }
+
+    ul.two_column_list {
+        display: block;
+        clear: both;
+
+        li {
+            display: table;
+            position: relative;
+            width: 100%;
+            font-size: 0.875rem;
+            line-height: 1.2rem;
+            border-bottom: 1px solid $colorDividerLt;
+
+            a, span {
+                display: table-cell;
+                padding: 1rem 0.625rem;
+            }
+
+            a {
+                word-break: break-all;
+                line-height: inherit;
+            }
+
+            span {
+                text-align: right;
+            }
+
+        }
+    }
+
+}
+
+.panel.rounded {
+    @include border-radius(4px);
+    @include box-shadow(0 1px 0 $colorDivider);
+}
+
+.panel.white {
+    background: #fff;
+    border: 1px solid $colorDivider;
+}
+
+.panel.no_pad {
+    padding: 0;
+}

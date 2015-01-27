@@ -1,0 +1,19 @@
+﻿<tabset ng-hide="{{hideWhen}}">
+    <tab ng-repeat="tab in $schema.config.{{name}}.tabs" ng-init="hasContent = tab.content ? true : false; contentURL = tab.contentURL || tab.id + '.html'"
+         heading="{{interpolateStartSymbol}}tab.title{{interpolateEndSymbol}}"
+         active="tab.active"
+         disabled="tab.disabled"
+         select="{{handle}}($event, '{{name}}', tab);">
+        <div id="{{interpolateStartSymbol}}tab.id{{interpolateEndSymbol}}"
+             name="{{interpolateStartSymbol}}tab.id{{interpolateEndSymbol}}">
+            <div class="ng-include tab-content"
+                 src='contentURL'
+                 ng-if="!hasContent && (!tab.type || tab.type === 'template' || tab.type == 'dynamic')"
+                 style="margin: 5px;" />
+            <div ng-if="hasContent || tab.type === 'static'"
+                 style="margin: 5px;">
+                {{interpolateStartSymbol}}tab.content{{interpolateEndSymbol}}
+            </div>
+        </div>
+    </tab>
+</tabset>

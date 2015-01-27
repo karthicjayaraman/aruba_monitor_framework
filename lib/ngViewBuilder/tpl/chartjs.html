@@ -1,0 +1,9 @@
+﻿<div ng-hide="{{hideWhen}}"  class="chart-container chart-{{name}}" id="container-{{name}}" name="container-{{name}}" style="margin:5px;">
+    <canvas id="{{name}}"
+            name={{name}}
+            chart="{{config.type}}"
+            options="$schema.config.{{name}}"
+            data="model.{{dataPath}}"
+            min-height="{{config.height}}"
+            min-width="{{config.width}}" />
+</div>

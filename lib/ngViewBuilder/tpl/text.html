@@ -1,0 +1,16 @@
+﻿<div class="form-group" ng-hide="{{hideWhen}}">
+    <label class="col-sm-3 control-label {{lblcls}}">{{label}}</label>
+    <div class="col-sm-9 {{cls}}">
+        <input class="form-control field-{{type}}}"
+               placeholder="{{placeholder}}"
+               type="{{type}}"
+               id="{{name}}"
+               name="{{name}}"
+               ng-model="model.{{dataPath}}"
+               ng-change="{{handle}}($event, '{{name}}', '{{formName}}', 'change');"
+               ng-focus="{{handle}}($event, '{{name}}', '{{formName}}', 'focus');"
+               ng-blur="{{handle}}($event, '{{name}}', '{{formName}}', 'blur');">
+
+        <p class="help-block">{{help}}</p>
+    </div>
+</div>

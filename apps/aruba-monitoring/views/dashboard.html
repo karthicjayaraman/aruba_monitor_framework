@@ -1,0 +1,111 @@
+﻿<div class="content">
+  <div class="divForSearchText">
+    <div class="search_wrapper">
+      <input type="text" class="small search" ng-model="model.userQueryText" ng-keyup="lookUp($event)" placeholder="enter search here..." style="width:100%" />
+      <label class="icon_search"></label>
+    </div>
+    <div ng-model="divForSuggestion" ng-show="showSuggestion" style="width:100%">
+      <select multiple class="select2" style="width:100%;min-height:150px; max-height:300px;" ng-model="model.suggestedValue" ng-click="handleChange('sourcetype')">
+        <optgroup label="Matching Terms">
+        <option ng-repeat="suggestion in suggestions" style="color:black" value="{{suggestion.key}}">{{suggestion.key}} ({{suggestion.doc_count}})</option>
+        </optgroup>
+      </select>
+    </div>
+  </div>
+  <div style="width:100%;height:80%;margin-top:25px;" ng-show="events.length || terms.length || true">
+    <div class="panel_wrapper" style="padding-bottom:10px;">
+      <div class="panel no_pad" style="border:none;">
+        <ul class="seggyc" style="float:right;">
+          <li ng-class="{current: model.displayMode == 'raw'}"><a href="javascript:" ng-click="changeDisplayMode('raw')">Query Result (Raw Data)</a></li>
+          <li ng-class="{current: model.displayMode == 'custom'}"><a href="javascript:" ng-click="changeDisplayMode('custom')">Visualization</a></li>
+        </ul>
+      </div>
+      <div class="panel no_pad"  ng-show="model.displayMode == 'custom'" style="border:none;">
+        <select class="select" style="float:right; margin-bottom: 10px; margin-right:8px;" ng-model="model.visualIndex" ng-change="getVisualization(model.visualIndex)">
+          <option ng-repeat="controlType in model.controlTypes track by $index" value="{{$index}}">{{controlType.desc}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel_wrapper" style="display:inline;width:100%;"  ng-show="model.displayMode == 'raw'">
+      <div class="panel table rounded white no_pad" style="border-top: none;">
+        <div class="panel_wrapper" style="display:inline;width:20%;height:50%;float:left">
+          <div class="panel table white no_pad">
+            <div class="title_heading">Fields</div>
+            <div class="table_wrapper">
+              <table class="data responsive" style="width:100%">
+                <tbody>
+                  <tr ng-repeat="term in terms">
+                    <td>{{term}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel_wrapper" style="display:inline;width:78%;height:50%;float:left;margin-left:2%">
+          <div class="panel table rounded white no_pad">
+            <div class="title_heading">Raw Data</div>
+            <div class="table_wrapper">
+              <table class="data responsive" style="width:100%">
+                <tbody>
+                  <tr ng-repeat="event in events track by $index">
+                    <td>{{event}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="model.displayMode == 'custom'">
+      <div id="user_control_container"> 
+        <!-- User Panel goes here --> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div ng-show="showUserSettingsPopup" class="AdminSetting popupContainer">
+
+<div class="overlay heavy open">
+
+  <a class="icosolo icon_close"></a>
+
+  <div class="message signup">
+
+    <div class="panel_wrapper">
+
+      <div class="panel rounded no_pad white">
+
+        <div class="tabs fullwidth">
+
+          <ul class="tabcontrols">
+            <li><span style="padding-left:20px; font-size:24px;">Configuration</span></li>
+          </ul>
+          
+          <div class="tab">
+            <div class="forms">
+              <div class="inputs cf">
+              
+<ng-include src="templateUrl"></ng-include>
+   
+                
+              </div>
+            </div>
+          </div>
+        
+
+        </div>
+      
+      </div>
+
+    </div>
+  
+  </div>
+
+</div>
+
+</div>

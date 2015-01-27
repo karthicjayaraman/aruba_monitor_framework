@@ -1,0 +1,141 @@
+/* Modals */
+
+.overlay {
+	visibility: hidden;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+    background-color: darken($colorLink, 19%); /* fallback */
+    background-color: rgba(darken($colorLink, 19%),0.85);
+	text-align: right;
+	z-index: 10000;
+	@include transform(translateY(100%));
+	@include transition(transform 500ms ease);
+
+	&.light {
+		background-color: #fff; /* fallback */
+		background-color: rgba(255,255,255,0.90);
+	}
+
+	&.heavy {
+
+		a.icon_close {
+			color: #fff;
+		}
+
+		.message {
+			top: 10%;
+			max-height: 80%;
+			margin-bottom: 10%;
+			overflow-y: auto;
+			overflow-x: hidden;
+			-webkit-overflow-scrolling: touch;
+			@include transform(translate3d(0,0,0));
+		    @include breakpoint(baby-bear) {
+		    	top: 4%;
+		    }
+
+		}
+
+	}
+
+	.message {
+		display: block;
+		position: relative;
+		top: 20%;
+		margin: 0 auto;
+		max-width: 650px;
+		width: 90%;
+		text-align: center;
+
+	    @include breakpoint(baby-bear) {
+	    	top: 8%;
+	    }
+
+	}
+
+	a.icon_close {
+	    display: block;
+		position: relative;
+		top: 5%;
+    	right: 5%;
+	    @include breakpoint(baby-bear) {
+	    	top: 2%;
+	    }
+	}
+
+	p {
+		display: block;
+		margin-bottom: 4rem;
+		font-size: 2rem;
+		line-height: 2.5rem;
+		font-weight: 200;
+	}
+
+	.controls {
+
+		a {
+			margin: 0 1rem;
+			min-width: 120px;
+			@include breakpoint(baby-bear) {
+				min-width: 0;
+				margin: 0 0.625rem;
+			}
+		}
+	}
+
+	.tabs.fullwidth {
+	    margin-left: 0;
+
+	    .tab {
+	        padding-left: 2rem;
+	        padding-right: 2rem;
+	    }
+
+	    .tabcontrols {
+
+		    li:first-child a {
+		        margin-left: 2rem;
+		    }
+
+		}
+
+	}
+
+	.panel_wrapper {
+		text-align: left;
+	}
+
+	.panel {
+		overflow-x: hidden;
+	}
+
+}
+
+.no-csstransforms .overlay, .no-csstransforms .overlay.close {
+	top: 100%;
+}
+
+.overlay.open {
+	visibility: visible;
+	@include transform(translateY(0%));
+}
+
+.no-csstransforms .overlay.open {
+	top: 0;
+}
+
+.overlay.close {
+	visibility: visible;
+	@include transform(translateY(100%));
+}
+
+.content_wrapper {
+	@include transition(transform 500ms ease);
+}
+
+.content_wrapper.overlay_open {
+	@include transform(scale(0.8));
+}

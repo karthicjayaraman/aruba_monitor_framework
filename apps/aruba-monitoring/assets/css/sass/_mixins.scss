@@ -1,0 +1,47 @@
+/* BREAKPOINTS */
+
+$papa-bear: 1600px;
+$mama-bear: 1100px;
+$baby-bear: 650px;
+
+/* MEDIA QUERIES */
+
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 1100px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 650px)  { @content; }
+  }
+}
+
+/* BACKGROUND SIZING FOR IE */
+
+@mixin ie-background-scale($url, $sizingmethod:'scale',$resetbackground: true) {
+  @if $resetbackground {
+    background-image: none;
+  }
+ 
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='#{image-url($url,true)}',
+    sizingMethod='#{$sizingmethod}');
+
+/* THE FOLLOWING WAS CAUSING CSS TO BREAK IN FIREFOX */
+ 
+/*  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+  src='#{image-url($url,true)}',
+  sizingMethod='#{$sizingmethod}')";*/
+}
+
+/* PLACEHOLDER TEXT FOR INPUTS */
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; } 
+}

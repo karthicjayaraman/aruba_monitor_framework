@@ -1,0 +1,100 @@
+/* Typography */
+
+h1 {
+	font-size: 2.25rem;
+	font-weight: 400;
+	line-height: 3.125rem;
+	color: inherit;
+    @include breakpoint(baby-bear) {
+    	font-size: 2rem;
+    	line-height: 2.5rem;
+    }
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 2rem;
+	color: inherit;
+}
+
+h3 {
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1.4rem;
+	color: $colorHighlight;
+}
+
+h4 {
+	font-size: 0.875rem;
+	font-weight: bold;
+	line-height: 1.2rem;
+	letter-spacing: .09em;
+	color: $colorHighlight;
+	text-transform: uppercase;
+}
+
+p {
+	line-height: 1.75rem;
+	color: inherit;
+    @include breakpoint(mama-bear) {
+        font-size: 1.125rem;
+    }
+}
+
+a {
+	font-size: 1em;
+	line-height: 1;
+    color: $colorLink;
+    text-decoration: none;
+    @include transition(opacity 200ms ease);
+}
+
+a:active {
+    @include opacity(0.50);
+}
+
+.no-touch a:hover {
+    @include opacity(0.50);
+}
+
+a:before, a:after {
+	@include transition(opacity 200ms ease);
+}
+
+p a {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+strong em {
+	font-weight: bold;
+	font-style: italic;
+}
+
+.lowercase {
+	text-transform: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.title {
+	color: $colorTitle;
+}
+
+.delete {
+	color: $colorAlert;
+}
+
+.accent1 {
+	color: darken($colorAccent1, 10);
+}
+
+.accent2 {
+	color: $colorAccent2;
+}

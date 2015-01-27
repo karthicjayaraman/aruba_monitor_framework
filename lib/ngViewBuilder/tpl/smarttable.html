@@ -1,0 +1,15 @@
+﻿<!-- http://lorenzofox3.github.io/smart-table-website/ -->
+<div class="grid {{type}}-table" style="min-height:180px;" ng-hide="{{hideWhen}}">
+    <table st-table="$schema.config[control.name].data" class="table table-striped">
+        <thead ng-if="$schema.config[control.name].hideHeaders !== true">
+            <tr ng-repeat="column in config.columnDefs">
+                <th class="header-cell-{{$index}} header-cell-{{column.field}}" st-sort="{{column.field}}">{{column.displayName}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in $schema.config[control.name].data">
+                <td ng-bind-html-unsafe="row[$schema.config[control.name].columnDefs[$index].field]"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

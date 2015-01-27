@@ -1,0 +1,25 @@
+﻿<div class="content_wrapper">
+  <div class="logo"><a href="#home"><img src="assets/images/logo.png" /></a></div>
+  <div class="mobile_menu_toggle"><a class="icon_arrow_down">Menu</a></div>
+  <ul class="sidenav">
+    <li class="folder" ng-repeat="dashboard in model.dashboards"> <a ui-sref=".{{dashboard.name}}" href="/{{$appName}}/{{dashboard.name}}" ng-bind="dashboard.description"></a>
+      <ul>
+        <li><a ui-sref=".overview">Overview</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="main">
+    <div class="title_bar title_Bar_padding"> <span></span>
+      <h1>Aruba - Monitoring Framework</h1>
+    </div>
+    <div class="content">
+      <div class="example">
+        <div class="forms">
+          <div class="inputs cf">
+            <div ui-view autoscroll></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

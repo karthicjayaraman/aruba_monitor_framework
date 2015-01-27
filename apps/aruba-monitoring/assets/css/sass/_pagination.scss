@@ -1,0 +1,114 @@
+/* Pagination */
+
+.pagination {
+
+    > li {
+        float: left;
+        text-align: center;
+    }
+
+    > li > a {
+        display: block;
+        padding-left: 5px;
+        padding-right: 5px;
+        min-width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        border: 1px solid $colorDivider;
+        border-right: none;
+        font-size: 0.875rem;
+        @include box-shadow(0 -1px 0 $colorDivider inset);
+        @include box-sizing(border-box);
+        @include breakpoint(mama-bear) {
+            min-width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    > li > a[class*='icon_'] {
+        padding: 0;
+        max-width: 2rem;
+        @include breakpoint(mama-bear) {
+            max-width: 2.5rem;
+        }
+    }
+
+    > li:first-child > a {
+        @include border-radius(4px 0 0 4px);
+    }
+
+    > li:last-child > a {
+        @include border-radius(0 4px 4px 0);
+        border-right: 1px solid $colorDivider;
+    }
+
+    > li.current > a {
+        border-left: none;
+        border-top: none;
+        color: #fff;
+        background: $colorHighlight;
+        @include box-shadow(0 2px 1px $colorDivider inset);
+    }
+
+    > li.disabled > a {
+        color: $colorNeutralDk;
+        cursor: default;
+    }
+
+}
+
+.no-touch .pagination > li > a:hover {
+    @include opacity(1);
+    @include box-shadow(0 -2px 0 $colorDivider inset);
+}
+
+.pagination > li > a:active, .no-touch .pagination > li > a:active {
+    background: $colorNeutralLt;
+    @include opacity(1);
+    @include box-shadow(0 1px 1px $colorDivider inset);
+}
+
+.pagination > li.current > a:active, .no-touch .pagination > li.current > a:active {
+    background: $colorHighlight;
+}
+
+/* Large Pagination */
+
+.pagination.large {
+
+    > li > a {
+        min-width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1rem;
+        @include breakpoint(mama-bear) {
+            min-width: 3.125rem;
+            height: 3.125rem;
+            font-size: 1.125rem;
+            line-height: 3.125rem;
+        }
+    }
+
+    > li > a[class*='icon_'] {
+        max-width: 2.5rem;
+        @include breakpoint(mama-bear) {
+            max-width: 3.125rem;
+        }
+    }
+
+}
+
+
+/* Ignore (for UI Patterns site template) */
+
+.pagination_cluster {
+    display: block;
+    overflow: auto;
+    
+    ul {
+        margin-bottom: 2rem;
+    }
+
+}

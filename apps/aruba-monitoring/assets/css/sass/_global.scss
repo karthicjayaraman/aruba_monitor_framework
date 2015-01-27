@@ -1,0 +1,259 @@
+/* Global Styles */
+
+@include global-reset();
+
+*, *:before, *:after {
+    @include box-sizing(initial);
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html, body {
+    color: $colorText;
+    font-family: 'opensans', helvetica, arial, sans-serif;
+    min-width: 100%;
+    height: 100%;
+    @include breakpoint(baby-bear) {
+        -webkit-text-size-adjust: none; 
+    }
+}
+
+ul li ul {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+::selection {
+    background-color: tint($colorHighlight, 60);
+}
+
+::-moz-selection {
+    background-color: tint($colorHighlight, 60);
+}
+
+img {
+    max-width: 100%;
+}
+
+.cf:before {
+    content: ' ';
+    display: table;
+}
+
+.cf:after {
+    @extend .cf:before;
+    clear: both;
+}
+
+label {
+    cursor: pointer;
+}
+
+select {
+    position: relative;
+    padding: 0.625rem;
+    border: none;
+    font-family: 'opensans', helvetica, arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: $colorHighlight;
+    outline: none;
+    background: url('../images/select_arrow@2x.png') no-repeat right center;
+    background-size: 38px 38px;
+    @include appearance(none);
+    @include border-radius(4px);
+    @include box-shadow(0 0 0 1px $colorDivider inset, 0 1px 0 $colorDivider);
+    @include box-sizing(border-box);
+    z-index: 0;
+    cursor: pointer;
+}
+
+.no-boxsizing select {
+    padding: 0.625rem 0;
+}
+
+.no-touch select:hover {
+    @include box-shadow(0 0 0 1px $colorDivider inset, 0 2px 0 $colorDivider);
+}
+
+.no-touch select:active, select:active {
+    @include box-shadow(0 0 0 1px $colorDivider inset, 0 2px 1px $colorDivider inset);
+}
+
+input[type=text] {
+    margin: 0;
+    padding-left: 1rem;
+    height: 2.5rem;
+    border: 1px solid $colorDivider;
+    font-family: 'opensans', helvetica, arial, sans-serif;
+    font-size: 0.875rem;
+    color: $colorText;
+    outline: none;
+    @include appearance(none);
+    @include border-radius(4px);
+    @include box-shadow(0 1px 1px $colorDividerLt inset);
+    @include box-sizing(border-box);
+    @include input-placeholder {
+        color: lighten($colorTitle, 20%);
+    }
+    @include breakpoint(mama-bear) {
+        font-size: 1rem;
+    }
+}
+
+input[type=text]:focus, input[type=text].error:focus {
+    background: rgba(0,0,0,0.02);
+    @include input-placeholder {
+        color: lighten($colorTitle, 20%);
+    }
+}
+
+input[type=text].error {
+    background: rgba($colorAlert, 0.05);
+    @include input-placeholder {
+        color: $colorAlert;
+    }
+}
+
+input[type=text].addon {
+    display: inline-block;
+    width: 100%;
+    height: 2.5rem;
+    border-right: none;
+    @include border-radius(4px 0 0 4px);
+    @include breakpoint(mama-bear) {
+        height: 2.9375rem;
+    }
+}
+
+input[type=text].small {
+    height: 2.1875rem;
+    @include breakpoint(mama-bear) {
+        font-size: 0.875rem;
+    }  
+}
+
+.search_wrapper {
+    position: relative;
+}
+
+input[type=text].small.search {
+    padding-left: 2rem;
+    height: 2.1875rem;
+    @include border-radius(1.25rem);
+}
+
+input[type=text].small.search + label:before {
+    position: absolute;
+    top: 0.125rem;
+    left: 0;
+    color: lighten($colorTitle, 40%);
+    @include breakpoint(mama-bear) {
+        font-size: 2rem;
+    }  
+}
+
+input[type=checkbox] {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    color: $colorLink;
+    outline: none;
+    z-index: 0;
+    cursor: pointer;
+    background: transparent;
+    -webkit-appearance: none; /* FF can't handle styling checkboxes & radios */
+    appearance: none;
+    @include border-radius(4px);
+    @include box-shadow(0 0 0 1px $colorDivider inset, 0 1px 0 $colorDivider);
+    -moz-box-shadow: none;
+    @include box-sizing(border-box);
+    @include breakpoint(mama-bear) {
+        width: 2rem;
+        height: 2rem;
+    }
+} 
+
+@-moz-document url-prefix() { 
+  input[type=checkbox] {
+     width: 1rem;
+     height: 1rem;
+     margin-top: 0.35rem;
+  }
+}
+
+.no-touch input[type=checkbox]:hover, .no-touch input[type=radio]:hover {
+    @include box-shadow(0 0 0 1px $colorDivider inset, 0 2px 0 $colorDivider);
+}
+
+input[type=checkbox]:checked, .no-touch input[type=checkbox]:checked:hover, input[type=radio]:checked, .no-touch input[type=radio]:checked:hover {
+    @include box-shadow(0 0 0 1px $colorDivider inset, 0 2px 1px $colorDivider inset);
+}
+
+input[type=checkbox]:checked:before {
+    position: absolute;
+    left: -0.125rem; 
+    font-family: 'arubaUI';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.75rem;
+    content: "checkmark";
+    @include breakpoint(mama-bear) {
+        left: 0;
+        font-size: 2rem;
+    }
+    /* Enable Ligatures ================ */
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input[type=checkbox] + label, input[type=radio] + label {
+    font-family: 'opensans', helvetica, arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.8125rem;
+    @include breakpoint(mama-bear) {
+        font-size: 1rem;
+        line-height: 2.3125rem;
+    }
+}
+
+input[type=radio] {
+    @extend input[type=checkbox];
+    @include border-radius(100%);
+}
+
+input[type=radio]:checked:before {
+    position: absolute;
+    top: -0.0625rem;
+    left: 0.4375rem;
+    font-size: 1rem;
+    font-family: 'opensans', helvetica, arial, sans-serif;
+    content: '●';
+    @include breakpoint(mama-bear) {
+        left: 0.625rem;
+        font-size: 1.25rem;
+    }
+}
+
+.divider_horiz {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: $colorAccent2;
+}

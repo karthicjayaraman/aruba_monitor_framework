@@ -1,0 +1,189 @@
+/* Tables */
+
+.panel.table {
+    overflow: hidden;
+
+    .table_wrapper {
+        display: block;
+        overflow: auto;
+    }
+}
+
+table th,
+table td {
+    text-align: left;
+}
+
+table.data {
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        position: relative;
+        font-size: 0.8125rem;
+        font-weight: bold;
+        line-height: 1;
+        color: $colorTitle;
+        text-transform: uppercase;
+        padding: 0.5rem 0.625rem 0.625rem;
+        background: $colorNeutralLt;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        @include box-shadow(0 -2px 0 $colorDividerLt inset);
+
+        &.select_all {
+            padding: 0.5rem 0.625rem;
+            width: 2.75rem;
+            @include box-sizing(border-box);
+        }
+
+    }
+
+    thead {
+
+        &.sortable {
+
+            th {
+                cursor: pointer;
+
+                &:after {
+                    position: relative;
+                    margin-right: 0.625rem;
+                    top: 0.75rem;
+                    right: -0.625rem;
+                    width: 0;
+                    height: 6px;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid $colorNeutralDk;
+                    border-bottom: none;
+                    content: '';
+                    @include transition(border-color 200ms ease);
+                }
+
+                &.actions:after {
+                    border: none;
+                }
+
+                &:active:after {
+                    border-top: 5px solid $colorLink;
+                }
+
+                &.up {
+
+                    &:after {
+                        top: -0.625rem;
+                        border-top: none;
+                        border-bottom: 5px solid $colorNeutralDk;
+                    }
+                
+                    &:active:after {
+                        border-bottom: 5px solid $colorLink;
+                    }
+
+                    &.sort:after {
+                        border-top: none;
+                        border-bottom: 5px solid $colorHighlight;
+                    }
+
+                }
+
+                &.down {
+
+                    &:after {
+                        top: 0.75rem;
+                    }
+
+                    &.sort:after {
+                        border-top: 5px solid $colorHighlight;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    tr {
+        position: relative;
+    }
+
+    td {
+        position: relative;
+        border-right: 1px solid $colorNeutralMd;
+        border-bottom: 1px solid $colorNeutralMd;
+        padding: 0.5rem 0.625rem;
+        white-space:nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        @include breakpoint(baby-bear) {
+            padding: 0.5rem;
+        }
+
+        &:nth-of-type(1) {
+            border-left: none;
+        }
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        &:before {
+            display: none;
+        }
+
+        &.actions {
+            border-right: none;
+            text-align: center;
+            padding: 0.5rem auto;
+
+            .icon_delete:before {
+                color: $colorAlert;
+            }
+
+            [class*='icon_']:before {
+                @include breakpoint(mama-bear) {
+                    font-size: 2rem;
+                }
+            }
+
+        }
+
+        &.checkbox {
+            width: 1.5rem;
+        }
+
+        &.medium_width {
+            max-width: 6.25rem;
+        }
+
+    }
+
+    input[type=checkbox] {
+        margin-right: 0;
+    }
+
+}
+
+.no-touch table.data thead.sortable th:hover:after {
+    border-top: 5px solid $colorLink;
+}
+
+.no-touch table.data thead.sortable th.up:hover:after {
+    border-bottom: 5px solid $colorLink;
+    border-top: none;
+}
+
+.no-touch table.data thead.sortable th.up.sort:hover:after {
+    border-bottom: 5px solid $colorHighlight;
+}
+
+.no-touch table.data thead.sortable th.down.sort:hover:after {
+    border-top: 5px solid $colorHighlight;
+    border-bottom: none;
+}

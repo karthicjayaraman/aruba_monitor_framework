@@ -1,0 +1,47 @@
+/* Segmented Control */
+
+.seggyc {
+    display: block;
+    position: relative;
+    overflow: auto;
+
+    li {
+        float: left;
+    }
+    
+    li a {
+        float: left;
+        margin-left: -1px;
+        padding: 0.625rem 0.625rem 0.75rem;
+        font-size: 0.875rem;
+        line-height: 0.65rem;
+        color: $colorHighlight;
+        background: rgba(255,255,255,0.90);
+        border: 1px solid $colorHighlight;
+        @include box-shadow(0 -1px 0 $colorHighlight inset);
+    }
+
+    li:first-child a {
+        @include border-radius(4px 0 0 4px);
+        margin-left: 0;
+    }
+
+    li:last-child a {
+        @include border-radius(0 4px 4px 0);
+    }
+
+}
+
+.no-touch .seggyc li a:hover {
+    @include opacity(1);
+    background: rgba(255,255,255,0.80);
+    @include box-shadow(0 -2px 0 $colorHighlight inset);
+}
+
+.seggyc li a:active, .no-touch .seggyc li a:active, .seggyc li.current a, .no-touch .seggyc li.current a:hover {
+    color: #fff;
+    background-color: $colorHighlight;
+    @include background-image(linear-gradient(darken($colorHighlight, 2%), lighten($colorHighlight, 2%)));
+    @include box-shadow(0 1px 1px rgba(0,0,0,0.05) inset);
+    @include opacity(1);
+}

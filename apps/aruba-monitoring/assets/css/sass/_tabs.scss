@@ -1,0 +1,157 @@
+/* Tabs */
+
+.tinynav {
+    display: none;
+}
+
+.tabcontrols {
+    display: block;
+    position: relative;
+    padding-top: 1.25rem;
+    overflow: auto;
+    z-index: 1000;
+    background-color: $colorNeutralLt;
+    @include box-shadow(0 -1px 0 $colorDividerLt inset);
+
+    li a {
+        float: left;
+        padding: 0.9375rem 1.25rem 0.8125rem;
+        border: 1px solid transparent;
+        border-bottom: transparent;
+        font-size: 0.875rem;
+        @include border-radius(4px 4px 0 0);
+    }
+
+    li.current a {
+        border: 1px solid $colorDivider;
+        border-bottom: transparent;
+        color: $colorHighlight;
+        background-color: #fff;
+        font-weight: bold;
+    }
+
+}
+
+.no-touch .tabcontrols li.current a:hover, .tabcontrols li.current a:active {
+    @include opacity(1);
+}
+
+.tab {
+    position: relative;
+    padding: 2rem;
+    margin-top: -1px;
+    z-index: 0;
+    border-top: 1px solid $colorDivider;
+}
+
+.tabs.fullwidth {
+    display: block;
+    margin-left: -4rem;
+    @include breakpoint(mama-bear) {
+        margin-left: -2rem;
+        margin-right: -2rem;
+    }
+
+    .tab {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        @include breakpoint(mama-bear) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+    .tabcontrols li:first-child a {
+        margin-left: 4rem;
+        @include breakpoint(mama-bear) {
+            margin-left: 2rem;
+        }
+    }
+
+}
+
+.tabs.responsive {
+    
+    .tabcontrols {
+        @include breakpoint(baby-bear) {
+            display: none;
+        }
+    }
+
+    .tinynav {
+        @include breakpoint(baby-bear) {
+            display: block;
+        }
+    }
+
+    .tab {
+        border-top: none;
+    }
+}
+
+.tabs.fullwidth.responsive {
+    @include breakpoint(baby-bear) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .tab {
+        @include breakpoint(baby-bear) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+}
+
+.tabs.dark {
+ 
+    .tab {
+        border-top: 1px solid $colorDividerLt;
+        background-color: $colorNeutralLt !important;
+        border: 1px solid $colorDividerLt;
+        border-top: none;
+        overflow-x: auto;
+    }
+
+    .tabcontrols {
+        background: transparent;
+    }
+
+    .tabcontrols li.current a {
+        border: 1px solid $colorDividerLt;
+        border-bottom: transparent;
+        background-color: $colorNeutralLt;
+    }
+
+}
+
+.tabs.responsive.dark {
+
+    .tab {
+        @include breakpoint(baby-bear) {
+            margin-top: 2rem;
+            border-top: 1px solid $colorDividerLt;
+        }
+    }
+
+}
+
+.tabs.fullwidth.dark {
+
+    .tab {
+        border-right: none;
+    }
+    
+}
+
+.tabs.fullwidth.responsive.dark {
+
+    .tab {
+        @include breakpoint(baby-bear) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+    
+}

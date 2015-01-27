@@ -1,0 +1,12 @@
+/* Add these styles if NOT IE 
+
+ * Import this file using the following HTML conditional comment:
+<!--[if !IE]>-->
+  <link rel="stylesheet" type="text/css" href="stylesheets/ie_not.css" />
+<!--<![endif]--> */
+
+@import
+	"compass",
+    "colors",
+    "mixins",
+    "tables_responsive";

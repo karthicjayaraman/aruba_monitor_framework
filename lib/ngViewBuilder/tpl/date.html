@@ -1,0 +1,19 @@
+﻿<div class="form-group" ng-hide="{{hideWhen}}">
+    <label class="col-sm-3 control-label {{lblcls}}">{{label}}</label>
+    <div class="col-sm-9">
+        <p class="input-group">
+            <input type="text"
+                   placeholder="{{placeholder}}"
+                   class="form-control field-{{type}}"
+                   datepicker-popup="{{interpolateStartSymbol}}$schema.config.{{name}}.format{{interpolateEndSymbol}}"
+                   ng-model="model.{{dataPath}}"
+                   is-open="$schema.config.{{name}}.opened"
+                   datepicker-options="$schema.config.{{name}}.dateOptions"
+                   close-text="{{interpolateStartSymbol}}$schema.config.{{name}}.closeText{{interpolateEndSymbol}}" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="$event.preventDefault(); $event.stopPropagation(); $schema.config.{{name}}.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+        </p>
+        <p class="help-block">{{help}}</p>
+    </div>
+</div>

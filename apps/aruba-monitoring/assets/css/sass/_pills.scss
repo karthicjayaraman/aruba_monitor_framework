@@ -1,0 +1,56 @@
+/* Pills */
+
+.pills_label {
+    float: left;
+    margin: 0 1.25rem 0 0;
+    font-size: 0.875rem;
+    line-height: 2rem;
+    @include breakpoint (mama-bear) {
+        font-size: 1rem;
+    }
+    @include breakpoint (baby-bear) {
+        display: block;
+        clear: both;
+        float: none;
+        margin-bottom: 0.625rem;
+    }
+}
+
+.pills {
+    display: block;
+    position: relative;
+    overflow: auto;
+
+    li {
+        float: left;
+    }
+
+    li a {
+        float: left;
+        margin-right: 0.3125rem;
+        padding: 0.625rem;
+        font-size: 0.875rem;
+        line-height: 0.625rem;
+        @include border-radius(0.9375rem);
+        @include breakpoint (mama-bear) {
+            font-size: 1rem;
+        }
+    }
+
+    li.current a {
+        color: #fff;
+        background-color: $colorHighlight;
+        font-weight: bold;
+        @include background-image(linear-gradient(darken($colorHighlight, 2%), lighten($colorHighlight, 2%)));
+        @include box-shadow(0 2px 0 rgba(0,0,0,0.10) inset);
+    }
+
+    li:last-child a {
+        margin-right: 0;
+    }
+
+}
+
+.no-touch .pills li.current a:hover, .pills li.current a:active {
+    @include opacity(1);
+}
